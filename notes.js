@@ -1,15 +1,29 @@
-function createCookie(key, value, date) {
-    let expiration = new Date(date).toUTCString();
-    console.log(expiration);
+let file = readCookie('file');
+if (file != null) {
+    console.log(file);
+}
+
+document.getElementById('inputfile').addEventListener('change', function() {
+    let fr = new FileReader();
+    let fileObject = this.files[0];
+    fr.readAsText(fileObject);
+    var newObject  = {
+        'lastModified'     : fileObject.lastModified,
+        'lastModifiedDate' : fileObject.lastModifiedDate,
+        'name'             : fileObject.name,
+        'size'             : fileObject.size,
+        'type'             : fileObject.type
+    };
+    createCookie('file', JSON.stringify(newObject));
+});
+
+function createCookie(key, value) {
+    let date = new Date();
+    date.setDate(date.getDate() + 365);
+    let expiration = date.toUTCString();
     let cookie = escape(key) + "=" + escape(value) + ";expires=" + expiration + ";";
     document.cookie = cookie;
-    console.log(cookie);
-    console.log("New cookie with key: " + key + " value: " + value + " expiration: " + expiration);
  }
-
-createCookie("age", "21");
-createCookie("sport", "ball");
-
 
 function readCookie(name) {
     let key = name + "=";
@@ -25,5 +39,3 @@ function readCookie(name) {
     }
     return null;
 }
-
-console.log(readCookie("age"));
