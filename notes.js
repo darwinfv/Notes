@@ -1,6 +1,6 @@
 let file = readCookie('file');
 if (file != null) {
-    console.log(file);
+    JSON.parse(file);
 }
 
 document.getElementById('inputfile').addEventListener('change', function() {
@@ -14,6 +14,8 @@ document.getElementById('inputfile').addEventListener('change', function() {
         'size'             : fileObject.size,
         'type'             : fileObject.type
     };
+    console.log(fileObject);
+    console.log(newObject);
     createCookie('file', JSON.stringify(newObject));
 });
 
