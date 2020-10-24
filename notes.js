@@ -1,10 +1,14 @@
-function createCookie(key, value) {
-    let cookie = escape(key) + "=" + escape(value) + ";";
+function createCookie(key, value, date) {
+    let expiration = new Date(date).toUTCString();
+    console.log(expiration);
+    let cookie = escape(key) + "=" + escape(value) + ";expires=" + expiration + ";";
     document.cookie = cookie;
     console.log(cookie);
-    console.log("Creating new cookie with key: " + key + " value: " + value);
-}
+    console.log("New cookie with key: " + key + " value: " + value + " expiration: " + expiration);
+ }
+
 createCookie("age", "21");
+createCookie("sport", "ball");
 
 
 function readCookie(name) {
@@ -22,4 +26,4 @@ function readCookie(name) {
     return null;
 }
 
-console.log(readCookie("icecream"));
+console.log(readCookie("age"));
