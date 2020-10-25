@@ -56,10 +56,14 @@ function newpage() {
     button.innerHTML = 'NewPage';
     let click = document.createAttribute('onclick');
     click.value = 'openpage(' + tabs + ')';
+    let edit = document.createAttribute('contenteditable');
+    edit.value = 'true';
     button.setAttributeNode(click);
+    button.setAttributeNode(edit);
     banner.insertBefore(button, document.getElementById('plus'));
 
     tabs++;
+    pages.append("Blank note");
     localStorage.setItem('tabs', tabs);
     localStorage.setItem('titles', titles + ',New Page');
 }
