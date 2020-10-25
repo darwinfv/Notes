@@ -64,7 +64,7 @@ function newpage() {
 
     tabs++;
     localStorage.setItem('tabs', tabs);
-    localStorage.setItem('titles', titles + ',New Page');
+    localStorage.setItem('titles', titles + ',NewPage');
 }
 
 pane.oninput = function() {
@@ -83,14 +83,12 @@ banner.addEventListener('input', () => {
 });
 
 function changeTitle(val) {
-    console.log(val, count);
     if (val == count) {
         let butts = banner.childNodes;
         let head = butts[0].innerHTML;
         for (let i = 1; i < butts.length - 1; i++) {
             head += "," + butts[i].innerHTML;
         }
-        console.log(butts);
         localStorage.setItem('titles', head);
     }
 }
