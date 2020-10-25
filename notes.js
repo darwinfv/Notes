@@ -36,6 +36,7 @@ openpage(0);
 
 function openpage(num) {
     pane.value = pages[num];
+    pane.attr = num;
     pane.style.height = pane.scrollHeight + "px";
     let butts = document.getElementsByTagName('button');
 
@@ -64,9 +65,11 @@ function newpage() {
 }
 
 pane.oninput = function() {
+    pane.style.height = "";
     pane.style.height = pane.scrollHeight + "px";
 };
 
 function change() {
-    console.log("sad")
+    localStorage.setItem('page' + pane.attr, pane.value);
+    pages[pane.attr] = pane.value;
 }
