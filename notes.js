@@ -63,7 +63,6 @@ function newpage() {
     banner.insertBefore(button, document.getElementById('plus'));
 
     tabs++;
-    pages.append("Blank note");
     localStorage.setItem('tabs', tabs);
     localStorage.setItem('titles', titles + ',New Page');
 }
@@ -88,7 +87,7 @@ function changeTitle(val) {
     if (val == count) {
         let butts = banner.childNodes;
         let head = butts[0].innerHTML;
-        for (let i = 1; i < butts.length; i++) {
+        for (let i = 1; i < butts.length - 1; i++) {
             head += "," + butts[i].innerHTML;
         }
         console.log(butts);
