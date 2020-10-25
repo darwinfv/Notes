@@ -73,3 +73,21 @@ function change() {
     localStorage.setItem('page' + pane.attr, pane.value);
     pages[pane.attr] = pane.value;
 }
+
+var count = 0;
+banner.addEventListener('input', () => {
+    setTimeout(changeTitle, 5000, ++count);
+});
+
+function changeTitle(val) {
+    console.log(val, count);
+    if (val == count) {
+        let butts = banner.childNodes;
+        let head = butts[0].innerHTML;
+        for (let i = 1; i < butts.length; i++) {
+            head += "," + butts[i].innerHTML;
+        }
+        console.log(butts);
+        localStorage.setItem('titles', head);
+    }
+}
