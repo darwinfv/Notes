@@ -91,3 +91,7 @@ function changeTitle(val) {
         localStorage.setItem('titles', head);
     }
 }
+
+window.onbeforeunload = function() {
+    localStorage.setItem('page' + pane.attr, pane.value);
+}
