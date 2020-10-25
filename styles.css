@@ -22,7 +22,21 @@
   background-color: #ccc;
 }
 
-p {
-  padding: 6px 12px;
+textarea {
+  /* margin-top: 22px; */
+  padding: 10px;
   border: 1px solid #ccc;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  min-width: 50%;
+  width: auto;
+  height: width;
+  display: block;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  margin-right: 1em;
+}
+
+::-webkit-resizer {
+  display: none;
 }

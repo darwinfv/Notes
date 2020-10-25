@@ -32,10 +32,11 @@ button.setAttributeNode(attr);
 banner.appendChild(button);
 
 let pane = document.getElementById('pane');
-pane.innerHTML = pages[0];
+openpage(0);
 
 function openpage(num) {
-    pane.innerHTML = pages[num];
+    pane.value = pages[num];
+    pane.style.height = pane.scrollHeight + "px";
     let butts = document.getElementsByTagName('button');
 
     for (let i = 0 ; i < butts.length - 1; i++) {
@@ -62,7 +63,10 @@ function newpage() {
     localStorage.setItem('titles', titles + ',New Page');
 }
 
+pane.oninput = function() {
+    pane.style.height = pane.scrollHeight + "px";
+};
 
-// document.getElementById("editor").addEventListener("input", function() {
-//     console.log("input event fired");
-// }, false);
+function change() {
+    console.log("sad")
+}
